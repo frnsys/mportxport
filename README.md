@@ -1,8 +1,11 @@
 Model & Collection Exporting/Importing
 ====================
-Original by Henrik (http://andyet.net/blog/henrik/) 
+Original by Henrik (http://andyet.net/blog/henrik/)
+
 Updated by Francis Tseng (yadonchow.com / @yadonchow)
+
 Collection Exporting/Importing added by Francis Tseng (yadonchow.com / @yadonchow) 
+
 
 A set of functions allowing easy exporting and importing of Backbone models and collections.
 
@@ -15,6 +18,7 @@ You must first instantiate a new model or collection to import to.
 When importing to a collection, you must specify the prototype as the second parameter (see the collections example below).
 
 **Example with Models**
+```javascript
   var model = new myModel({ foo: 'bar' });
   var export = model.xport();
 
@@ -22,11 +26,14 @@ When importing to a collection, you must specify the prototype as the second par
   newModel.import( xportedModel );
   newModel.get('foo');
   // => returns 'bar'
+```
 
 **Example with Collections**
+```javascript
   var models = [ ... some models ... ];
   var collection = new myCollection( models );
   var exports = collection.xport();
 
   var newCollection = new myCollection();
   newCollection.mport( exports, myCollection() );
+```
