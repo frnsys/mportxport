@@ -1,9 +1,7 @@
 Model & Collection Exporting/Importing
 ====================
 Original by Henrik (http://andyet.net/blog/henrik/)
-
 Updated by Francis Tseng (yadonchow.com / @yadonchow)
-
 Collection Exporting/Importing added by Francis Tseng (yadonchow.com / @yadonchow) 
 
 
@@ -13,6 +11,10 @@ The main use of this is moving models back-and-forth between the client-side and
 
 While you could pass models through URLs such as mysite.com/model.json without using .mport(), it won't preserve collections included within a model. These functions make that possible.
 
+
+
+**How to Use**
+
 You must first instantiate a new model or collection to import to.
 
 When importing to a collection, you must specify the prototype as the second parameter (see the collections example below).
@@ -20,10 +22,10 @@ When importing to a collection, you must specify the prototype as the second par
 **Example with Models**
 ```javascript
   var model = new myModel({ foo: 'bar' });
-  var export = model.xport();
+  var anExport = model.xport();
 
   var newModel = new myModel();
-  newModel.import( xportedModel );
+  newModel.import( anExport );
   newModel.get('foo');
   // => returns 'bar'
 ```
