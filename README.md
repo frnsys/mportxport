@@ -11,6 +11,15 @@ The main use of this is moving models back-and-forth between the client-side and
 
 While you could pass models through URLs such as mysite.com/model.json without using .mport(), it won't preserve collections included within a model. These functions make that possible.
 
+There's an additional collection.fport() method, which is similar to collection.fetch() in that it will grab and mport JSON from the collection's specified url.
+collection.fport() is used like so:
+```javascript
+  window.collection = new myCollection();
+  collection.fport( myModel, function( collection ) {
+    window.collectionView = new CollectionView({ collection: collection });
+  });
+```
+The arguments are the prototype of the model that the collection holds, as well as the callback for when the loading has finished.
 
 
 **How to Use**
@@ -32,10 +41,12 @@ When importing to a collection, you must specify the prototype as the second par
 
 **Example with Collections**
 ```javascript
-  var models = [ ... some models ... ];
+  var models = [ ... some myModels ... ];
   var collection = new myCollection( models );
   var exports = collection.xport();
 
   var newCollection = new myCollection();
-  newCollection.mport( exports, myCollection() );
+  newCollection.mport( exports, myModel() );
 ```
+
+**E

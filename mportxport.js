@@ -85,7 +85,7 @@
         collection.push( model.xport() );
       });
       return collection;
-    }
+    };
 
     Backbone.Collection.prototype.mport = function(collection, modelPrototype, silent) {
       var silent = silent || null;
@@ -96,4 +96,14 @@
         targetCollection.add( newModel );
       });
       return targetCollection;
-    }
+    };
+
+    Backbone.Collection.prototype.fport = function(modelPrototype, callback) {
+      var silent = silent || null;
+      var targetCollection = this;
+      $.getJSON( targetCollection.url, function(data) {
+        targetCollection.mport(data, modelPrototype, silent);
+        callback( targetCollection );
+      });
+    };
+    
